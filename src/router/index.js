@@ -4,14 +4,18 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: "/sign-up",
-      name: "signUp",
-      component: () => import("../views/SingUpView.vue"),
+      path: "/",
+      redirect: "/sign-up",
     },
     {
-      path: "/complete",
-      name: "complete",
-      component: () => import("../views/CompleteView.vue"),
+      path: "/sign-up",
+      name: "signUp",
+      component: () => import("../views/SignUpView.vue"),
+    },
+    {
+      path: "/registration-complete",
+      name: "registrationComplete",
+      component: () => import("../views/RegistrationCompleteView.vue"),
     },
   ],
 });
