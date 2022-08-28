@@ -25,7 +25,6 @@ export const useAccountStore = defineStore({
     async submit(payload, routeName) {
       payload.cellular = payload.cellular.replace(REG_EXR.REPLACE_NUMBER, '');
 
-      console.log('##### payload', payload);
       this.info = payload;
       await useChangeRoute(routeName);
     },
