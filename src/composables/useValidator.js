@@ -8,7 +8,7 @@ export default function (formData) {
     pwRetry: formData.password === formData.pwRetry,
     name: validation(REG_EXR.NAME, formData.name),
     cellular: validation(REG_EXR.CELLULAR, formData.cellular),
-    address: !!formData.address,
+    address: !!formData.address.road && !!formData.address.detail,
     cardNo: false,
   };
 }

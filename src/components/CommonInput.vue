@@ -1,17 +1,11 @@
 <script setup>
+import { debounce } from '@/utils';
+
 const props = defineProps(['modelValue', 'type']);
 const emits = defineEmits(['update:modelValue']);
-
-const valueEmit = (function () {
-  let inDebounce = null;
-
-  return function (ev) {
-    clearTimeout(inDebounce);
-    inDebounce = setTimeout(() => {
-      emits('update:modelValue', ev.target.value);
-    }, 700);
-  };
-})();
+const valueEmit = debounce(ev => {
+  emits('update:modelValue', ev.target.value);
+});
 </script>
 
 <template>
