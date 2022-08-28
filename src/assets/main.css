@@ -14,14 +14,14 @@ button {
   border-radius: 5px;
 }
 button:disabled {
-  background-color: #ccc;
+  background-color: #ccc !important;
 }
 body {
   height: 100vh;
   line-height: 1.6;
   font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -41,7 +41,7 @@ body {
   width: 100%;
   max-width: 360px;
   height: 420px;
-  padding: 60px 40px 40px;
+  padding: 60px 32px 32px;
   border: 1px solid;
 }
 
@@ -60,15 +60,27 @@ body {
 .input-container .input-item {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 7%;
+  margin-bottom: 8%;
 }
 
 .input-item label {
-  width: 60px;
+  width: 72px;
 }
 
 .input-item input {
   width: 200px;
+}
+
+.input-wrap {
+  height: 36px;
+}
+
+.validation-message {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  font-size: 0.75rem;
+  color: red;
 }
 
 .input-address {
