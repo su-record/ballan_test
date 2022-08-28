@@ -9,14 +9,14 @@ import { useAccountStore } from '@/stores/account';
 const step = ref(0);
 const panel = computed(() => useSignUpPanel(step.value));
 const formData = reactive({
-  email: 'abc@naver.com',
-  password: 'Tngusl!97**',
-  pwRetry: 'Tngusl!97**',
-  name: 'willy',
-  cellular: '010 4549 4662',
+  email: '',
+  password: '',
+  pwRetry: '',
+  name: '',
+  cellular: '',
   address: {
-    road: '경기 용인시 처인구 남사읍 한숲로 123 (e편한세상 용인 한숲시티)',
-    detail: '303-1901',
+    road: '',
+    detail: '',
   },
   cardNo: '',
 });
