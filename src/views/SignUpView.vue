@@ -4,18 +4,19 @@ import InputContainer from '@/components/InputContainer.vue';
 import useSignUpPanel from '@/composables/useSignUpPanel';
 import useValidator from '@/composables/useValidator';
 import { useDisabled } from '@/composables/useDisabled';
+import { useAccountStore } from '@/stores/account';
 
-const step = ref(2);
+const step = ref(0);
 const panel = computed(() => useSignUpPanel(step.value));
 const formData = reactive({
-  email: '',
-  password: '',
-  pwRetry: '',
-  name: '',
-  cellular: '',
+  email: 'abc@naver.com',
+  password: 'Tngusl!97**',
+  pwRetry: 'Tngusl!97**',
+  name: 'willy',
+  cellular: '010 4549 4662',
   address: {
-    road: '',
-    detail: '',
+    road: '경기 용인시 처인구 남사읍 한숲로 123 (e편한세상 용인 한숲시티)',
+    detail: '303-1901',
   },
   cardNo: '',
 });
@@ -48,6 +49,11 @@ const isNext = computed(() => {
 const addressClose = function () {
   document.querySelector('#addressWrap').style.display = 'none';
 };
+
+const account = useAccountStore();
+const submit = function () {
+  account.submit(formData, 'RegistrationComplete');
+};
 </script>
 
 <template>
@@ -56,7 +62,7 @@ const addressClose = function () {
     <div class="sign-buttons" :class="{ multiple: step === 1 }">
       <button v-if="step === 1" @click="step = step - 1">이전</button>
       <button v-if="step !== 2" @click="step = step + 1" :disabled="!isNext">다음</button>
-      <button v-else :disabled="!isNext">완료</button>
+      <button v-else :disabled="!isNext" @click="submit">완료</button>
     </div>
     <div id="addressWrap">
       <img
