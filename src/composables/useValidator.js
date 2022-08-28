@@ -1,5 +1,5 @@
 import { REG_EXR } from '@/constants';
-import { validation } from '@/utils';
+import { validation, validationCard, cardSum } from '@/utils';
 
 export default function (formData) {
   return {
@@ -9,6 +9,6 @@ export default function (formData) {
     name: validation(REG_EXR.NAME, formData.name),
     cellular: validation(REG_EXR.CELLULAR, formData.cellular),
     address: !!formData.address.road && !!formData.address.detail,
-    cardNo: false,
+    cardNo: !!formData.cardNo && validationCard(cardSum, formData.cardNo),
   };
 }

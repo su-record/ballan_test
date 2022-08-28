@@ -5,7 +5,7 @@ import useSignUpPanel from '@/composables/useSignUpPanel';
 import useValidator from '@/composables/useValidator';
 import { useDisabled } from '@/composables/useDisabled';
 
-const step = ref(1);
+const step = ref(2);
 const panel = computed(() => useSignUpPanel(step.value));
 const formData = reactive({
   email: '',
@@ -56,7 +56,7 @@ const addressClose = function () {
     <div class="sign-buttons" :class="{ multiple: step === 1 }">
       <button v-if="step === 1" @click="step = step - 1">이전</button>
       <button v-if="step !== 2" @click="step = step + 1" :disabled="!isNext">다음</button>
-      <button v-else>완료</button>
+      <button v-else :disabled="!isNext">완료</button>
     </div>
     <div id="addressWrap">
       <img
